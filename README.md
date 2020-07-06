@@ -46,10 +46,10 @@ Notes: When done, please share us the Repository Link.
 
 ## Observations ##
 
-- If you want to test with dummy data run the command: ### php artisan migrate:fresh --seed
+- If you want to test with dummy data run the command: ### php artisan migrate:fresh --seed ###
 
 ## Alexander Sánchez ##
-### ajstalito@gmail.com ##
+### ajstalito@gmail.com ###
 
 
 
