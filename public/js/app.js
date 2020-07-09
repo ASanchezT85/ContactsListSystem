@@ -2267,8 +2267,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -63285,238 +63283,227 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "div",
-      { staticClass: "row justify-content-center", attrs: { id: "crud" } },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-11 container" }, [
-          _c(
-            "div",
-            {
-              staticClass: "d-flex justify-content-end align-items-center my-3"
-            },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.search,
-                    expression: "search"
-                  }
-                ],
-                staticClass: "form-control mr-2",
-                staticStyle: { "max-width": "350px" },
-                attrs: {
-                  type: "text",
-                  placeholder: "Search",
-                  "aria-label": "Search",
-                  name: "search"
-                },
-                domProps: { value: _vm.search },
-                on: {
-                  keyup: _vm.searchContact,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.search = $event.target.value
-                  }
+    _c("div", { staticClass: "row justify-content-center border" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-11" }, [
+        _c(
+          "div",
+          { staticClass: "d-flex justify-content-end align-items-center my-3" },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.search,
+                  expression: "search"
                 }
+              ],
+              staticClass: "form-control mr-2",
+              staticStyle: { "max-width": "350px" },
+              attrs: {
+                type: "text",
+                placeholder: "Search",
+                "aria-label": "Search",
+                name: "search"
+              },
+              domProps: { value: _vm.search },
+              on: {
+                keyup: _vm.searchContact,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.search = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { type: "button" },
+                on: { click: _vm.newModal }
+              },
+              [_vm._v("\n                    Add New\n                ")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "table-responsive" }, [
+          _c("table", { staticClass: "table table-hover table-striped" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              [
+                _vm._l(_vm.contacts.data, function(contact) {
+                  return _c("tr", { key: contact.id }, [
+                    _c("td", {
+                      staticClass: "text-center",
+                      domProps: { textContent: _vm._s(contact.id) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", {
+                      domProps: { textContent: _vm._s(contact.first_name) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", {
+                      domProps: { textContent: _vm._s(contact.last_name) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", {
+                      staticClass: "text-center",
+                      domProps: { textContent: _vm._s(contact.email) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", {
+                      staticClass: "text-center",
+                      domProps: { textContent: _vm._s(contact.contact_number) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", {
+                      staticClass: "text-center",
+                      domProps: { textContent: _vm._s(contact.created_at) }
+                    }),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "text-center" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "mx-1",
+                          attrs: { href: "#", title: "Edit" },
+                          on: {
+                            click: function($event) {
+                              return _vm.editModal(contact)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-edit blue",
+                            staticStyle: { "font-size": "1.2rem" }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "mx-1",
+                          attrs: { href: "#", title: "Destroy" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteContact(contact.slug)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-trash text-danger",
+                            staticStyle: { "font-size": "1.2rem" }
+                          })
+                        ]
+                      )
+                    ])
+                  ])
+                }),
+                _vm._v(" "),
+                _vm.contacts.data <= 0
+                  ? _c("tr", [
+                      _c(
+                        "td",
+                        { staticClass: "text-center", attrs: { colspan: "7" } },
+                        [_vm._v("There are no records to show")]
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              2
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("nav", { attrs: { "aria-label": "..." } }, [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _vm.pagination.current_page > 1
+                ? _c("li", { staticClass: "page-item" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#", title: "Atras" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.changePage(
+                              _vm.pagination.current_page - 1
+                            )
+                          }
+                        }
+                      },
+                      [_c("span", [_vm._v("Atras")])]
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.pagesNumber, function(page) {
+                return _c(
+                  "li",
+                  {
+                    staticClass: "page-item",
+                    class: [page == _vm.isActived ? "active" : ""]
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.changePage(page)
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(page))]
+                    )
+                  ]
+                )
               }),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: { click: _vm.newModal }
-                },
-                [_vm._v("\n                    Add New\n                ")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "table-responsive" }, [
-            _c("table", { staticClass: "table table-hover table-striped" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(_vm.contacts.data, function(contact) {
-                    return _c("tr", { key: contact.id }, [
-                      _c("td", {
-                        staticClass: "text-center",
-                        domProps: { textContent: _vm._s(contact.id) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(contact.first_name) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(contact.last_name) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        staticClass: "text-center",
-                        domProps: { textContent: _vm._s(contact.email) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        staticClass: "text-center",
-                        domProps: {
-                          textContent: _vm._s(contact.contact_number)
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        staticClass: "text-center",
-                        domProps: { textContent: _vm._s(contact.created_at) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "text-center" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mx-1",
-                            attrs: { href: "#", title: "Edit" },
-                            on: {
-                              click: function($event) {
-                                return _vm.editModal(contact)
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-edit blue",
-                              staticStyle: { "font-size": "1.2rem" }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "mx-1",
-                            attrs: { href: "#", title: "Destroy" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteContact(contact.slug)
-                              }
-                            }
-                          },
-                          [
-                            _c("i", {
-                              staticClass: "fa fa-trash text-danger",
-                              staticStyle: { "font-size": "1.2rem" }
-                            })
-                          ]
-                        )
-                      ])
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _vm.contacts.data <= 0
-                    ? _c("tr", [
-                        _c(
-                          "td",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "7" }
-                          },
-                          [_vm._v("There are no records to show")]
-                        )
-                      ])
-                    : _vm._e()
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _c("nav", { attrs: { "aria-label": "..." } }, [
-              _c(
-                "ul",
-                { staticClass: "pagination" },
-                [
-                  _vm.pagination.current_page > 1
-                    ? _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#", title: "Atras" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.changePage(
-                                  _vm.pagination.current_page - 1
-                                )
-                              }
-                            }
-                          },
-                          [_c("span", [_vm._v("Atras")])]
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm._l(_vm.pagesNumber, function(page) {
-                    return _c(
-                      "li",
+              _vm.pagination.current_page < _vm.pagination.last_page
+                ? _c("li", { staticClass: "page-item" }, [
+                    _c(
+                      "a",
                       {
-                        staticClass: "page-item",
-                        class: [page == _vm.isActived ? "active" : ""]
+                        staticClass: "page-link",
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.changePage(
+                              _vm.pagination.current_page + 1
+                            )
+                          }
+                        }
                       },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.changePage(page)
-                              }
-                            }
-                          },
-                          [_vm._v(_vm._s(page))]
-                        )
-                      ]
+                      [_c("span", [_vm._v("Siguiente")])]
                     )
-                  }),
-                  _vm._v(" "),
-                  _vm.pagination.current_page < _vm.pagination.last_page
-                    ? _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.changePage(
-                                  _vm.pagination.current_page + 1
-                                )
-                              }
-                            }
-                          },
-                          [_c("span", [_vm._v("Siguiente")])]
-                        )
-                      ])
-                    : _vm._e()
-                ],
-                2
-              )
-            ])
-          ])
+                  ])
+                : _vm._e()
+            ],
+            2
+          )
         ])
-      ]
-    ),
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -63827,7 +63814,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Since")]),
         _vm._v(" "),
-        _c("td", { attrs: { colspan: "2" } })
+        _c("td", { attrs: { colspan: "2", scope: "col" } }, [_vm._v("Actions")])
       ])
     ])
   },
@@ -63878,8 +63865,10 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "col-9 container" }, [
-          _c("div", { staticClass: "table-responsive" }, [
-            _c("table", { staticClass: "table table-hover table-striped" }, [
+          _c(
+            "table",
+            { staticClass: "table table-hover table-striped table-responsive" },
+            [
               _vm._m(1),
               _vm._v(" "),
               _c(
@@ -63923,84 +63912,84 @@ var render = function() {
                 ],
                 2
               )
-            ]),
-            _vm._v(" "),
-            _c("nav", { attrs: { "aria-label": "..." } }, [
-              _c(
-                "ul",
-                { staticClass: "pagination" },
-                [
-                  _vm.pagination.current_page > 1
-                    ? _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#", title: "Atras" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.changePage(
-                                  _vm.pagination.current_page - 1
-                                )
-                              }
+            ]
+          ),
+          _vm._v(" "),
+          _c("nav", { attrs: { "aria-label": "..." } }, [
+            _c(
+              "ul",
+              { staticClass: "pagination" },
+              [
+                _vm.pagination.current_page > 1
+                  ? _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#", title: "Atras" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.changePage(
+                                _vm.pagination.current_page - 1
+                              )
                             }
-                          },
-                          [_c("span", [_vm._v("Atras")])]
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm._l(_vm.pagesNumber, function(page) {
-                    return _c(
-                      "li",
-                      {
-                        staticClass: "page-item",
-                        class: [page == _vm.isActived ? "active" : ""]
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.changePage(page)
-                              }
+                          }
+                        },
+                        [_c("span", [_vm._v("Atras")])]
+                      )
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.pagesNumber, function(page) {
+                  return _c(
+                    "li",
+                    {
+                      staticClass: "page-item",
+                      class: [page == _vm.isActived ? "active" : ""]
+                    },
+                    [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.changePage(page)
                             }
-                          },
-                          [_vm._v(_vm._s(page))]
-                        )
-                      ]
-                    )
-                  }),
-                  _vm._v(" "),
-                  _vm.pagination.current_page < _vm.pagination.last_page
-                    ? _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.changePage(
-                                  _vm.pagination.current_page + 1
-                                )
-                              }
+                          }
+                        },
+                        [_vm._v(_vm._s(page))]
+                      )
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _vm.pagination.current_page < _vm.pagination.last_page
+                  ? _c("li", { staticClass: "page-item" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "page-link",
+                          attrs: { href: "#" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.changePage(
+                                _vm.pagination.current_page + 1
+                              )
                             }
-                          },
-                          [_c("span", [_vm._v("Siguiente")])]
-                        )
-                      ])
-                    : _vm._e()
-                ],
-                2
-              )
-            ])
+                          }
+                        },
+                        [_c("span", [_vm._v("Siguiente")])]
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              2
+            )
           ])
         ])
       ]
@@ -76495,8 +76484,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\backend7\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\backend7\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\ContactsListSystem\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\ContactsListSystem\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <div id="crud" class="row justify-content-center">
+        <div class="row justify-content-center border">
             <div class="col-11 text-center py-1">
                 <h4>Contact list</h4>
             </div>
-            <div class="col-11 container">
+            <div class="col-11">
                 <div class="d-flex justify-content-end align-items-center my-3">
                     <input class="form-control mr-2" type="text" placeholder="Search" aria-label="Search" v-model="search" name="search" style="max-width: 350px;" @keyup="searchContact">
                     <button type="button" class="btn btn-primary" @click="newModal">
@@ -21,7 +21,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Since</th>
-                                <td colspan="2"></td>
+                                <td colspan="2" scope="col">Actions</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,28 +46,28 @@
                             </tr>
                         </tbody>
                     </table>
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li v-if="pagination.current_page > 1" class="page-item">
-                                <a class="page-link" href="#" title="Atras" @click.prevent="changePage(pagination.current_page - 1)">
-                                    <span>Atras</span>
-                                </a>
-                            </li>
-                            <li v-for="page in pagesNumber"
-                                class="page-item" 
-                                v-bind:class="[page == isActived ? 'active' : '']">
-                                <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
-                            </li>
-                            <li v-if="pagination.current_page < pagination.last_page" 
-                                class="page-item">
-                                <a href="#" class="page-link" 
-                                    @click.prevent="changePage(pagination.current_page + 1)">
-                                    <span>Siguiente</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li v-if="pagination.current_page > 1" class="page-item">
+                            <a class="page-link" href="#" title="Atras" @click.prevent="changePage(pagination.current_page - 1)">
+                                <span>Atras</span>
+                            </a>
+                        </li>
+                        <li v-for="page in pagesNumber"
+                            class="page-item" 
+                            v-bind:class="[page == isActived ? 'active' : '']">
+                            <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+                        </li>
+                        <li v-if="pagination.current_page < pagination.last_page" 
+                            class="page-item">
+                            <a href="#" class="page-link" 
+                                @click.prevent="changePage(pagination.current_page + 1)">
+                                <span>Siguiente</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
         <!-- Modal -->

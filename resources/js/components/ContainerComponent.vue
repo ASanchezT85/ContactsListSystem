@@ -4,7 +4,7 @@
             <div class="col-12 text-center py-1">
                 <h1 class="page-header">User List</h1>
             </div>
-            <div class="col-9 container">
+            <div class="col-9">
                 <div class="table-responsive">
                     <table class="table table-hover table-striped">
                         <thead class="text-center">
@@ -27,28 +27,28 @@
                             </tr>
                         </tbody>
                     </table>
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li v-if="pagination.current_page > 1" class="page-item">
-                                <a class="page-link" href="#" title="Atras" @click.prevent="changePage(pagination.current_page - 1)">
-                                    <span>Atras</span>
-                                </a>
-                            </li>
-                            <li v-for="page in pagesNumber"
-                                class="page-item" 
-                                v-bind:class="[page == isActived ? 'active' : '']">
-                                <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
-                            </li>
-                            <li v-if="pagination.current_page < pagination.last_page" 
-                                class="page-item">
-                                <a href="#" class="page-link" 
-                                    @click.prevent="changePage(pagination.current_page + 1)">
-                                    <span>Siguiente</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        <li v-if="pagination.current_page > 1" class="page-item">
+                            <a class="page-link" href="#" title="Atras" @click.prevent="changePage(pagination.current_page - 1)">
+                                <span>Atras</span>
+                            </a>
+                        </li>
+                        <li v-for="page in pagesNumber"
+                            class="page-item" 
+                            v-bind:class="[page == isActived ? 'active' : '']">
+                            <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+                        </li>
+                        <li v-if="pagination.current_page < pagination.last_page" 
+                            class="page-item">
+                            <a href="#" class="page-link" 
+                                @click.prevent="changePage(pagination.current_page + 1)">
+                                <span>Siguiente</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
